@@ -4,37 +4,110 @@
     <html lang="pt-BR">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@200&family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Document</title>
 </head>
 <body>
-<!--
-        <section class="container">
-        <div class="content">
-            <h1 class="title">Notas</h1>
-            <div class="notes">
-                <button class="add">Adicionar</button>
-                <button class="remove">Remover</button>
-                <button class="alter">Alterar</button>
-            </div>
-        </div>
-    </section>
- 
-
--->
-
   <section class="container">
-    <h1>Lista de tarefas</h1>
+    <h1>Notas</h1>
+    <p>Adicione uma tarefa.</p>
     <P>
         <input type="text" class="input-nova-tarefa"> 
         <button type="submit">Adicionar</button>
     </P>
       
-    <ul class="tarefas"></ul>
+    <ul class="tarefas">
+        <div class="row">
+            <li class="col">
+                <div class="text">
+                    <p>Tarefa 1</p>
+                </div>
+                 <div class="buttons">
+                    <button class="remove">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                    <button class="alter">
+                        <span class="material-symbols-outlined">done</span>
+                    </button>
+                </div>
+            </li>
 
-    <div id="resultado"></div>
+            <li class="col">
+                <div class="text">
+                    <p>Tarefa 1</p>
+                </div>
+                 <div class="buttons">
+                    <button class="remove">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                    <button class="alter">
+                        <span class="material-symbols-outlined">done</span>
+                    </button>
+                </div>
+            </li>
+
+            <li class="col">
+                <div class="text">
+                    <p>Tarefa 1</p>
+                </div>
+                 <div class="buttons">
+                    <button class="remove">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                    <button class="alter">
+                        <span class="material-symbols-outlined">done</span>
+                    </button>
+                </div>
+            </li>
+
+            <li class="col">
+                <div class="text">
+                    <p>Tarefa 1</p>
+                </div>
+                 <div class="buttons">
+                    <button class="remove">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                    <button class="alter">
+                        <span class="material-symbols-outlined">done</span>
+                    </button>
+                </div>
+            </li>
+
+            <li class="col">
+                <div class="text">
+                    <p>Tarefa 1</p>
+                </div>
+                 <div class="buttons">
+                    <button class="remove">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                    <button class="alter">
+                        <span class="material-symbols-outlined">done</span>
+                    </button>
+                </div>
+            </li>
+
+            <li class="col">
+                <div class="text">
+                    <p>Tarefa 1</p>
+                </div>
+                <div class="buttons">
+                    <button class="remove">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                    <button class="alter">
+                        <span class="material-symbols-outlined">done</span>
+                    </button>
+                </div>
+            </li>
+        </div>
+       
+    </ul>
   </section>
-
   <script src="./assets/js/app.js"></script>
-
 </body>
 </html>
