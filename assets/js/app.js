@@ -6,18 +6,19 @@ function criaLi(){
  const li = document.createElement('li');
  return li;
 }
-function addConfi(){
+function addConfi(li){
   let li = criaLi();
   li.classList.add('col');
-  let text = li.document.createElement('div');
+  let text = document.createElement('div');
   text.classList.add('text');
   text = document.createTextNode(addTarefas.value);
 }
 
 buttonAdd.addEventListener('click', function(e){
-  const li = document.createElement('li');
-  tarefas.appendChild(li);
-  li.classList.add('col');
+  addConfi();
+  //const li = document.createElement('li');
+  //tarefas.appendChild(li);
+  //li.classList.add('col');
 });
 
 
