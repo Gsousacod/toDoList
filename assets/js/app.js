@@ -1,3 +1,40 @@
+const tarefas = document.querySelector('.tarefas');
+const addTarefas = document.querySelector('.input-nova-tarefa');
+const buttonAdd = document.querySelector('.submit');
+
+function criaLi(){
+ return document.createElement('li');
+}
+function addConfi(){
+  let li = criaLi();
+  li.classList.add('col');
+  let text = li.document.createElement('div');
+  text.classList.add('text');
+  text = document.createTextNode(addTarefas.value);
+}
+
+buttonAdd.addEventListener('click', function(e){
+  console.log('funcionando')
+  addConfi();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Capturar evento de submit do formulário
 const form = document.querySelector('#formulario');
