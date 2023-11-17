@@ -6,6 +6,7 @@ function criaLi() {
   const li = document.createElement('li');
   return li;
 }
+
 function addCard() {
   let li = criaLi();
   tarefas.appendChild(li);
@@ -13,29 +14,83 @@ function addCard() {
   getConfig(li);
   return li;
 }
+
+
 function getConfig(li) {
   let text = document.createElement('div');
   li.appendChild(text)
   text.classList.add('text');
-  adicionaTexto();
+  adicionaTexto(text);
+  criarButtons(li)
   return text;
 }
-function adicionaTexto(input) {
-  if (input == '') {
-    console.log("Preencha o campo de texto");
-  } else {
-    const tarefa = addCard();
-    return tarefa;
-  };
-  return console.log('Algo deu errado!')
+
+
+function adicionaTexto(text) {
+  console.log(addTarefas.value)
+  text.innerHTML += `<p>${addTarefas.value}</p>`
 }
 
+
+function criarButtons(li) {
+  let buttons = document.createElement('div');
+  li.appendChild(buttons)
+  buttons.classList.add('buttons');
+  for (let i = 0; i < 2; i++) {
+    let button = document.createElement('button');
+    buttons.appendChild(button);
+    let span = spanAdd(button);
+    if (i == 0) {
+      classButtonRemove(button);
+      buttonRemove(span);
+    }
+    if (i == 1) {
+      classButtonAlter(button);
+      buttonAlter(span);
+    }
+
+  }
+}
+
+function classButtonAlter(button){
+  button.classList.add('alter');
+}
+
+function classButtonRemove(button){
+  button.classList.add('remove');
+}
+
+function buttonRemove(button) {
+  button.textContent = 'delete';
+}
+
+function buttonAlter(button) {
+  button.textContent = 'done';
+}
+
+function spanAdd(button) {
+  let span = document.createElement('span');
+  button.appendChild(span);
+  span.classList.add('material-symbols-outlined');
+  return span;
+}
+
+
 buttonAdd.addEventListener('click', function (e) {
-  adicionaTexto(addTarefas.value);
-  //const li = document.createElement('li');
-  //tarefas.appendChild(li);
-  //li.classList.add('col');
+  if (!addTarefas) return;
+  addCard();
+  limpaInput(addTarefas);
 });
+
+
+//Botões de remover e concluir. Quando clicar em remove remover e quando clicar em concluir trocar a cor ou colocar riscado.
+
+buttonRemov.addEventListener('click', function (e) {
+  const buttonRemov = document.querySelector('remove');
+  const li = document.querySelector('col')
+  document.removeChild(li)
+});
+
 
 
 
