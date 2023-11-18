@@ -3,6 +3,7 @@ const liTarefas = document.querySelector('.col');
 const addTarefas = document.querySelector('.input-nova-tarefa');
 const buttonAdd = document.querySelector('.submit');
 const buttonRemov = document.querySelector('remove');
+const dateAtual = document.querySelector('.date');
 
 function criaLi() {
   const li = document.createElement('li');
@@ -23,14 +24,35 @@ function getConfig(li) {
   li.appendChild(text)
   text.classList.add('text');
   adicionaTexto(text);
+  addicionar(text)
   criarButtons(li)
   return text;
+}
+function getAdd(){
+  var dataHoraAtual = new Date();
+  var dataHoraFormatada = `${dataHoraAtual.toLocaleDateString()}`;
+  addDate(dataHoraFormatada);
+}
+
+function addDate(date){
+  let data = document.createElement('span');
+  dateAtual.appendChild(data)
+  data.innerHTML= `${date}`;
+}
+
+function addicionar(text){
+  let div = document.createElement('div')
+  div.classList.add('date')
+  text.appendChild(div);
+  getAdd();
 }
 
 
 function adicionaTexto(text) {
-  console.log(addTarefas.value)
-  text.innerHTML += `<p>${addTarefas.value}</p>`
+  let tarefa = document.createElement('div');
+  tarefa.classList.add('tarefa')
+  text.appendChild(tarefa);
+  tarefa.innerHTML += `<p>${addTarefas.value}</p>`
 }
 
 
@@ -89,9 +111,12 @@ function spanAdd(button) {
   span.classList.add('material-symbols-outlined');
   return span;
 }
+
 function limpaInput(addTarefas){
   addTarefas.value='';
 }
+
+
 
 addTarefas.addEventListener('keypress', function(e){
   if(e.keyCode===13){
