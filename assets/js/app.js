@@ -38,7 +38,7 @@ function criarButtons(li) {
   let buttons = document.createElement('div');
   li.appendChild(buttons)
   buttons.classList.add('buttons');
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 3; i++) {
     let button = document.createElement('button');
     buttons.appendChild(button);
     let span = spanAdd(button);
@@ -50,23 +50,29 @@ function criarButtons(li) {
     if (i == 1) {
       classButtonAlter(button);
       buttonAlter(span);
-      
+      span.id = 'alter';
+    }
+    if (i == 2) {
+      classButtonRefresh(button);
+      buttonRefresh(span);
+      span.id = 'refresh';
     }
 
   }
 }
-function addIdRemov(span){
-  
+function classButtonRefresh(button){
+  button.classList.add('refresh');
 }
-function addIdAlter(span){
-  span.id = 'alter';
-}
+
 function classButtonAlter(button){
   button.classList.add('alter');
 }
 
 function classButtonRemove(button){
   button.classList.add('remove');
+}
+function buttonRefresh(button) {
+  button.textContent = 'refresh';
 }
 
 function buttonRemove(button) {
@@ -112,11 +118,21 @@ document.addEventListener('click', function (e) {
 });
 
 document.addEventListener('click', function (e) {
-  const remove = e.target;
-  if (remove.classList.contains('material-symbols-outlined')) {
-    if (remove.id === 'alter') {
-      let listItem = remove.closest('li');
+  const alter = e.target;
+  if (alter.classList.contains('material-symbols-outlined')) {
+    if (alter.id === 'alter') {
+      let listItem = alter.closest('li');
       listItem.style.backgroundColor = 'red';
+    }
+  }
+});
+
+document.addEventListener('click', function (e) {
+  const refresh = e.target;
+  if (refresh.classList.contains('material-symbols-outlined')) {
+    if (refresh.id === 'refresh') {
+      let listItem = refresh.closest('li');
+      listItem.style.backgroundColor = '#6BE36B';
     }
   }
 });
