@@ -89,12 +89,15 @@ function spanAdd(button) {
   span.classList.add('material-symbols-outlined');
   return span;
 }
+function limpaInput(addTarefas){
+  addTarefas.value='';
+}
 
 addTarefas.addEventListener('keypress', function(e){
   if(e.keyCode===13){
     if (!addTarefas) return;
-      addCard();
-      limpaInput(addTarefas);
+    addCard();
+    limpaInput(addTarefas);
   }
 });
 
@@ -152,40 +155,6 @@ document.addEventListener('click', function (e) {
 
 
 
-function limpaInput(input) {
-  input.value = '';
-}
-function salvaDados(text) {
-  localStorage.setItem('dado', JSON.stringify([...JSON.parse(localStorage.getItem('dado')) || [],
-  { id: Date.now(), texto: text.innerText }]))
-}
-function carregarDados() {
-  const dados = JSON.parse(localStorage.getItem('dado'));
-  dados && dados.forEach((item) => {
-    criarCards(item);
-  });
-}
-function criarCards({ id, texto }) {
-  let card = document.createElement('div');
-  card.innerHTML += `<h2>${texto}</h2>`;
-  card.innerHTML += '<button class="btn btn-primary">Excluir</button>';
-  card.classList.add('card');
-  card.dataset.id = id;
-  tarefas.appendChild(card);
-  deletarBotao(card);
-}
-function deletarBotao(card) {
-  let botaoDeletar = card.querySelector('.btn')
-  botaoDeletar.addEventListener('click', () => {
-    excluiTarefa(card);
-  })
-}
-function excluiTarefa(card) {
-  const dados = JSON.parse(localStorage.getItem('dado'));
-  dados = dados.filter(tarefa => tarefa.id != Number(card.dataset.id));
-  localStorage.setItem('dado', JSON.stringify(dados));
-  location.reload();
-}
 
 
 
