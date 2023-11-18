@@ -1,6 +1,7 @@
 const tarefas = document.querySelector('.row');
 const addTarefas = document.querySelector('.input-nova-tarefa');
 const buttonAdd = document.querySelector('.submit');
+const buttonRemov = document.querySelector('remove');
 
 function criaLi() {
   const li = document.createElement('li');
@@ -86,9 +87,7 @@ buttonAdd.addEventListener('click', function (e) {
 //Botões de remover e concluir. Quando clicar em remove remover e quando clicar em concluir trocar a cor ou colocar riscado.
 
 buttonRemov.addEventListener('click', function (e) {
-  const buttonRemov = document.querySelector('remove');
-  const li = document.querySelector('col')
-  document.removeChild(li)
+  console.log('Botão delete pressionando!')
 });
 
 
