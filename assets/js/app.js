@@ -1,4 +1,5 @@
 const tarefas = document.querySelector('.row');
+const liTarefas = document.querySelector('.col');
 const addTarefas = document.querySelector('.input-nova-tarefa');
 const buttonAdd = document.querySelector('.submit');
 const buttonRemov = document.querySelector('remove');
@@ -44,15 +45,22 @@ function criarButtons(li) {
     if (i == 0) {
       classButtonRemove(button);
       buttonRemove(span);
+      span.id = 'remove';
     }
     if (i == 1) {
       classButtonAlter(button);
       buttonAlter(span);
+      
     }
 
   }
 }
-
+function addIdRemov(span){
+  
+}
+function addIdAlter(span){
+  span.id = 'alter';
+}
 function classButtonAlter(button){
   button.classList.add('alter');
 }
@@ -76,6 +84,13 @@ function spanAdd(button) {
   return span;
 }
 
+addTarefas.addEventListener('keypress', function(e){
+  if(e.keyCode===13){
+    if (!addTarefas) return;
+      addCard();
+      limpaInput(addTarefas);
+  }
+});
 
 buttonAdd.addEventListener('click', function (e) {
   if (!addTarefas) return;
@@ -86,9 +101,26 @@ buttonAdd.addEventListener('click', function (e) {
 
 //Botões de remover e concluir. Quando clicar em remove remover e quando clicar em concluir trocar a cor ou colocar riscado.
 
-buttonRemov.addEventListener('click', function (e) {
-  console.log('Botão delete pressionando!')
+document.addEventListener('click', function (e) {
+  const remove = e.target;
+  if (remove.classList.contains('material-symbols-outlined')) {
+    if (remove.id === 'remove') {
+      let listItem = remove.closest('li');
+      listItem.remove();
+    }
+  }
 });
+
+document.addEventListener('click', function (e) {
+  const remove = e.target;
+  if (remove.classList.contains('material-symbols-outlined')) {
+    if (remove.id === 'alter') {
+      let listItem = remove.closest('li');
+      listItem.style.backgroundColor = 'red';
+    }
+  }
+});
+
 
 
 
