@@ -1,7 +1,5 @@
 
 :root {
-  --primary-color: rgb(166, 197, 204);
-  --primary-color-darker: #093038;
   --color-open: #6BE36B;
   --container:rgba(252, 252, 252, 0.8);
   --input: transparent;
@@ -12,7 +10,7 @@
 .dark{
   --input-bottun:#fff;
   --back: url(../img/back-dark.jpg);
-  --container:#093038;
+  --container: rgba(9, 48, 56,0.6);
 }
 
 * {
