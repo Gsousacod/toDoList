@@ -3,6 +3,16 @@
   --primary-color: rgb(166, 197, 204);
   --primary-color-darker: #093038;
   --color-open: #6BE36B;
+  --container:rgba(252, 252, 252, 0.8);
+  --input: transparent;
+  --input-bottun:#000;
+  --back: url(../img/back.jpg);
+ 
+}
+.dark{
+  --input-bottun:#fff;
+  --back: url(../img/back-dark.jpg);
+  --container:#093038;
 }
 
 * {
@@ -20,18 +30,18 @@
 }
 
 .material-symbols-outlined {
-  background-color: black;
   border-radius: 50%;
   padding: 5px;
-  color: #fff;
+  color: var(--input-bottun);
   transition: 1s;
   border: none;
   }
 
 body {
+  color: var(--input-bottun);
   margin: 0;
   padding: 0;
-  background-image: url(../img/back.jpg);
+  background-image: var(--back);
   background-size: cover;
   font-family: 'Open sans', sans-serif;
   font-size: 1.3em;
@@ -40,6 +50,9 @@ body {
 
 .tarefas{
   padding: 0;
+}
+.tarefa{
+  text-align: center;
 }
 
 ul li{
@@ -51,26 +64,27 @@ ul li{
 .container {
   max-width: 700px;
   margin: 50px auto;
-  background: rgba(252, 252, 252, 0.8);
+  background: var(--container);
   padding: 30px;
   border-radius: 10px;
 }
 
 input[type="text"]{
-  width: 500px;
+  width: 560px;
   padding: 7px;
-  color: black;
-  background-color: #fff;
+  color: var(--input-bottun);
+  background-color: var(--input);
+  border: solid 0.2px var(--input-bottun)
 }
 
 button[type="submit"]{
   padding: 7px;
-  color: black;
-  background-color: #fff;
+  color: var(--input-bottun);
+  background-color: var(--input);
 }
 
 button[type="submit"]:hover{
-  color: #fff;
+  color: var(--input-bottun);
   background-color: blueviolet;
   transition: 1s;
   border: none;
@@ -81,25 +95,21 @@ button[type="submit"]:hover{
   flex-wrap: wrap;
   margin: -10px; /* compensar as margens negativas nos itens da linha */
 }
-.tarefa{
-  height: 90%;
-}
-.date{
-  height: 15%;
-}
+
 
 .col {
   display: flex;
-  color: #fff;
+  color: var(--input-bottun);
   background-color: var(--color-open);
-  width: 250px;
-  height: 250px;
-  padding: 10px;
+  width: 650px;
+  height: 50px;
+  padding: 0 10px;
+  
 }
 
 .text{
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 100%;
@@ -107,12 +117,11 @@ button[type="submit"]:hover{
 
 .buttons{
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
 }
 
 .buttons button{
-  color: #fff;
+  color: var(--input-bottun);
   background-color: transparent;
   border: none;
 }

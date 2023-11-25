@@ -28,23 +28,20 @@ function getConfig(li) {
   criarButtons(li)
   return text;
 }
-function getAdd(){
+
+function addDate(div){
   var dataHoraAtual = new Date();
   var dataHoraFormatada = `${dataHoraAtual.toLocaleDateString()}`;
-  addDate(dataHoraFormatada);
-}
-
-function addDate(date){
   let data = document.createElement('span');
-  dateAtual.appendChild(data)
-  data.innerHTML= `${date}`;
+  div.appendChild(data)
+  data.innerHTML= `${dataHoraFormatada}`;
 }
 
 function addicionar(text){
   let div = document.createElement('div')
-  div.classList.add('date')
   text.appendChild(div);
-  getAdd();
+  div.classList.add('date')
+  addDate(div)
 }
 
 
