@@ -2,13 +2,14 @@
 :root {
   --color-open: #6BE36B;
   --container:rgba(252, 252, 252, 0.6);
-  --input: transparent;
+  --input: rgba(252, 252, 252, 0.9);
   --input-bottun:#000;
   --color:#000;
   --back: url(../img/back.jpg);
  
 }
 .dark{
+  --input: rgba(93, 92, 92, 0.9);
   --color:#000;
   --input-bottun:#fff;
   --back: url(../img/back-dark.jpg);
@@ -75,14 +76,14 @@ input[type="text"]{
   padding: 7px;
   color: var(--input-bottun);
   background-color: var(--input);
-  border: solid 0.2px var(--input-bottun)
+  border: none;
 }
 
 button[type="submit"]{
   padding: 7px;
   color: var(--input-bottun);
   background-color: var(--input);
-  border: solid var(--color) 1px;
+  border: none;
 
 }
 
@@ -182,7 +183,7 @@ span:hover{
   border-radius: 50%;
   left: 10%;
   bottom: 15%;
-  box-shadow: inset 8px -4px 0px 0px #fff000;
+  box-shadow: inset 8px -4px 0px 0px #fff;
   background: var(--background);
   transition: .5s;
 }
@@ -193,5 +194,5 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(100%);
-  box-shadow: inset 15px -4px 0px 15px #fff000;
+  box-shadow: inset 15px -4px 0px 15px #fff;
 }

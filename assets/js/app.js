@@ -10,22 +10,23 @@ function criaLi() {
   return li;
 }
 
-function addCard() {
+function addCard(texto) {
   let li = criaLi();
   tarefas.appendChild(li);
   li.classList.add('col');
-  getConfig(li);
+  getConfig(li,texto);
   return li;
 }
 
 
-function getConfig(li) {
+function getConfig(li,texto) {
   let text = document.createElement('div');
   li.appendChild(text)
   text.classList.add('text');
-  adicionaTexto(text);
+  adicionaTexto(text,texto);
   addicionar(text)
   criarButtons(li)
+  salavTarefas();
   return text;
 }
 
@@ -45,11 +46,11 @@ function addicionar(text){
 }
 
 
-function adicionaTexto(text) {
+function adicionaTexto(text,texto) {
   let tarefa = document.createElement('div');
   tarefa.classList.add('tarefa')
   text.appendChild(tarefa);
-  tarefa.innerHTML += `<p>${addTarefas.value}</p>`
+  tarefa.innerHTML += `<p>${texto}</p>`
 }
 
 
@@ -112,20 +113,50 @@ function spanAdd(button) {
 function limpaInput(addTarefas){
   addTarefas.value='';
 }
+function salavTarefas(){
+  const liTarefas = document.querySelectorAll('.col');
+  const listTarefas = [];
 
+  for (let tarefa of liTarefas) {
+    const textDiv = tarefa.querySelector('.text .tarefa p');
+    const dateDiv = tarefa.querySelector('.date span');
+
+    const textoTarefa = textDiv.innerText.trim();
+    const dataTarefa = dateDiv.innerText.trim();
+
+    listTarefas.push({ texto: textoTarefa, data: dataTarefa });
+  }
+  const tarefasJson = JSON.stringify(listTarefas);
+  localStorage.setItem('tarefas',tarefasJson);
+ 
+}
+
+function adicionaTarefasSalvas() {
+  const tarefasSalvas = localStorage.getItem('tarefas');
+  if (tarefasSalvas) {
+    const tarefasArray = JSON.parse(tarefasSalvas);
+    for (let tarefa of tarefasArray) {
+      addCard(tarefa.texto);
+    }
+  } else {
+    console.log('Nenhuma tarefa salva.');
+  }
+}
+
+adicionaTarefasSalvas();
 
 
 addTarefas.addEventListener('keypress', function(e){
   if(e.keyCode===13){
     if (!addTarefas) return;
-    addCard();
+    addCard(addTarefas.value);
     limpaInput(addTarefas);
   }
 });
 
 buttonAdd.addEventListener('click', function (e) {
   if (!addTarefas) return;
-  addCard();
+  addCard(addTarefas.value);
   limpaInput(addTarefas);
 });
 
@@ -139,6 +170,7 @@ document.addEventListener('change', function (e) {
 }
 });
 
+
 //Botões de remover e concluir. Quando clicar em remove remover e quando clicar em concluir trocar a cor ou colocar riscado.
 
 document.addEventListener('click', function (e) {
@@ -147,6 +179,7 @@ document.addEventListener('click', function (e) {
     if (remove.id === 'remove') {
       let listItem = remove.closest('li');
       listItem.remove();
+      salavTarefas();
     }
   }
 });
@@ -170,40 +203,3 @@ document.addEventListener('click', function (e) {
     }
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
