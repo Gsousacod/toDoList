@@ -129,6 +129,15 @@ buttonAdd.addEventListener('click', function (e) {
   limpaInput(addTarefas);
 });
 
+document.addEventListener('change', function (e) {
+  let html = document.documentElement; // Obtém o elemento html
+  let darkLight = document.getElementById('dark-light');
+  if (darkLight.checked === true) {
+    html.classList.add('dark'); // Adiciona a classe 'dark' ao elemento html
+} else {
+    html.classList.remove('dark'); // Remove a classe 'dark' do elemento html
+}
+});
 
 //Botões de remover e concluir. Quando clicar em remove remover e quando clicar em concluir trocar a cor ou colocar riscado.
 
